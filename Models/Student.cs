@@ -5,11 +5,14 @@ namespace GenericsLearning.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public static int StudentCounter =0;
+
 
         public Student(string fName, string lName)
         {
             FirstName = fName;
             LastName = lName;
+            StudentCounter++;
         }
 
         public override string ToString()

@@ -8,6 +8,6 @@ namespace GenericsLearning.Interfaces
 {
     internal interface IRepository<T>
     {
-        T[] List();
+        IEnumerable<T> List();
     }
 }

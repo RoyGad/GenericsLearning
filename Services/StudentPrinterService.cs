@@ -1,4 +1,5 @@
-﻿using GenericsLearning.Interfaces;
+﻿using System.Linq;
+using GenericsLearning.Interfaces;
 using GenericsLearning.Models;
 
 namespace GenericsLearning.Services
@@ -12,14 +13,16 @@ namespace GenericsLearning.Services
             _studentRepository = studentRepository;
         }
 
-        public void PrintStudents()
+        public void PrintStudents(int count = 100)
         {
-            var students = _studentRepository.List();
+            var students = _studentRepository.List()
+            .Take(count).ToArray();
 
             //sort
-            Array.Sort(students);
+            //Array.Sort(students);
 
             Console.WriteLine("Students: ");
+
             for (int i = 0; i < students.Count(); i++)
             {
                 Console.WriteLine(students[i]);

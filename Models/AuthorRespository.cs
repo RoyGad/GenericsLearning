@@ -4,7 +4,7 @@ namespace GenericsLearning.Models
 {
     internal class AuthorRespository : IRepository<Author>
     {
-        public Author[] List()
+        public IEnumerable<Author> List()
         {
             var authors = new Author[5];
             authors[0] = new Author("Roy", "Gad");

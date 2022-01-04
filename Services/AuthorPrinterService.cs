@@ -1,4 +1,5 @@
-﻿using GenericsLearning.Interfaces;
+﻿using System.Linq;
+using GenericsLearning.Interfaces;
 using GenericsLearning.Models;
 
 namespace GenericsLearning.Services
@@ -12,18 +13,18 @@ namespace GenericsLearning.Services
             _authorRepository = authorRepository;
         }
 
-        public void PrintAuthors()
+        public void PrintAuthors(int count)
         {
-            var authors = _authorRepository.List();
+            var authors = _authorRepository.List().ToArray();
 
             //sort
-
-            Array.Sort(authors);
-
-            for (int i = 0; i < authors.Count(); i++)
+            //Array.Sort(authors);
+            var displayNum = (count<= authors.Count()-1)? count: authors.Count();
+            for (int i = 0; i < displayNum; i++)
             {
                 Console.WriteLine(authors[i]);
             }
+
         }
     }
 }
