@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace GenericsLearning.Models
 {
     internal class Student : IComparable
@@ -8,10 +10,10 @@ namespace GenericsLearning.Models
         public static int StudentCounter =0;
 
 
-        public Student(string fName, string lName)
+        public Student(string fName, string lName )
         {
-            FirstName = fName;
-            LastName = lName;
+            FirstName = fName ?? "First Name not provided";
+            LastName = lName ?? "Last Name not provided";
             StudentCounter++;
         }
 

@@ -1,4 +1,7 @@
-﻿using GenericsLearning.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using GenericsLearning.Interfaces;
 
 public record Name (string fName, string lName);
 
@@ -19,14 +22,12 @@ namespace GenericsLearning.Models
         }
         public IEnumerable<Student> List()
         {
-            Console.WriteLine(students.Count());
-            var counter = _names.Count();
+            Console.WriteLine("I am here now " + _names.Count());
         
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < _names.Count(); i++)
             {
-                students.Add(new Student(_names[i].fName, _names[i].lName));
+              yield return new Student(_names[i]?.fName, _names[i]?.lName);
             }
-            return students;
         }
     }
 }

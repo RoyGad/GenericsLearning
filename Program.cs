@@ -1,5 +1,6 @@
 ﻿using GenericsLearning.Services;
 using GenericsLearning.Models;
+using System;
 
 namespace GenericsLearning
 {
@@ -11,7 +12,7 @@ namespace GenericsLearning
             Console.WriteLine("Current time is: " + DateTime.Now);
 
             var studentService = new StudentPrinterService(new StudentRepository());
-            studentService.PrintStudents(3);
+            studentService.PrintStudents(6);
 
             Console.WriteLine($"Number of students created: {Student.StudentCounter}");
 
